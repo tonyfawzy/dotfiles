@@ -8,7 +8,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-title_align center
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -188,13 +188,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-###### Autostart applications ######
+### Autostart applications ###
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id feh --bg-scale /mnt/pd/01Archive/2023/09/Images/wp02.jpg
 
 #Custom bindsym
 bindsym Print exec ~/myscreenshot.sh
 bindsym $mod+o exec $HOME/Downloads/Obsidian-1.4.13.AppImage
+
+title_align center
 
 #No window title
 for_window [class="^.*"] border pixel 3
