@@ -188,19 +188,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-# POLYBAR
-#exec_always --no-startup-id killall -q polybar && polybar pbari3 &
+###### Autostart applications ######
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-#To set wallpaper
 exec --no-startup-id feh --bg-scale /mnt/pd/01Archive/2023/09/Images/wp02.jpg
 
 #Custom bindsym
 bindsym Print exec ~/myscreenshot.sh
 bindsym $mod+o exec $HOME/Downloads/Obsidian-1.4.13.AppImage
 
-#No title
+#No window title
 for_window [class="^.*"] border pixel 3
 
 #Spaces between windows
