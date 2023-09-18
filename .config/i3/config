@@ -4,7 +4,6 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -187,7 +186,6 @@ mode "resize" {
         
         }
 
-
 bindsym $mod+r mode "resize"
 
 
@@ -195,32 +193,22 @@ bindsym $mod+r mode "resize"
 #exec_always --no-startup-id killall -q polybar && polybar pbari3 &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-
-
 #To set wallpaper
-#exec --no-startup-id feh --bg-scale /mnt/pd/01Archive/2023/08/wp003.png
 exec --no-startup-id feh --bg-scale /mnt/pd/01Archive/2023/09/Images/wp02.jpg
-
-# exec --no-startup-id picom --experimental-backend
 
 #Custom bindsym
 bindsym Print exec ~/myscreenshot.sh
 bindsym $mod+o exec $HOME/Downloads/Obsidian-1.4.13.AppImage
 
-
-#exec --no-startup-id xsetroot -cursor_name Capitaine Cursors
-
 #No title
 for_window [class="^.*"] border pixel 3
+
 #Spaces between windows
 gaps inner 4
 gaps outer 3
-
 
 #colors:                border  backgr. text    indic.
 client.focused          #ff79c6 #ff79c6 #f8f8f2 #ff79c6
 client.focused_inactive #888888 #222222 #ffffff #222222
 client.unfocused        #888888 #222222 #ffffff #222222
 client.urgent           #900000 #900000 #ffffff #900000
-
-
