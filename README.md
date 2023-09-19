@@ -1,6 +1,6 @@
 # My dotfiles
 
 
-## :memo: License ##
+## License ##
 
-This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE.md) file.
+The files and scripts in this repository are licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE.md) file.
