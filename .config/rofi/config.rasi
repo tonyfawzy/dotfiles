@@ -1,0 +1,103 @@
+configuration {
+/*	modes: "window,drun,run,ssh";*/
+	font: "Roboto Bold 11";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+@theme "/dev/null"
+
+* {
+    dark:	#282a36;
+    lessdark:	#44475a;
+    white:	#f8f8f2;
+    darkblue:	#6272a4;
+    blue:	#8be9fd;
+    green:	#50fa7b;
+    orange:	#ffb86c;
+    pink:	#ff79c6;
+    purple:	#bd93f9;
+    red:	#ff5555;
+    yellow:	#f1fa8c;
+
+    background-color:   transparent;
+    text-color:         @white;
+    accent-color:       @white;
+
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+window {
+    location:           north;
+    width:              100%;
+    height:		20;
+    background-color:   @purple;
+    children:           [ mainbox,message ];
+}
+
+mainbox {
+    orientation:    horizontal;
+    children:       [ inputbar,listview ];
+}
+
+inputbar {
+    width:      20%;
+    padding:    1px 8px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+
+prompt, entry, element-text, {
+    vertical-align: 0.5;
+}
+
+prompt {
+    text-color: @accent-color;
+}
+
+listview {
+    layout: horizontal;
+}
+
+element {
+    padding:    1px 8px;
+    spacing:    4px;
+}
+
+element normal urgent {
+    text-color: @lessdark;
+}
+
+element normal active {
+    text-color: @accent-color;
+}
+
+element selected {
+    text-color: @white;
+}
+
+element selected normal {
+    background-color:   @pink;
+}
+
+element selected urgent {
+    background-color:   @red;
+}
+
+element selected active {
+    background-color:   @pink;
+}
+
+element-text {
+    text-color: inherit;
+}
