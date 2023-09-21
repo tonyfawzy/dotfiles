@@ -1,3 +1,11 @@
+/*    _                                                     */
+/*   | |_ ___  _ __  _   _                                  */    
+/*   | __/ _ \| '_ \| | | |                                 */
+/*   | || (_) | | | | |_| |  https://github.com/tonyfawzy   */    
+/*    \__\___/|_| |_|\__, |                                 */
+/*                   |___/                                  */
+
+
 configuration {
 /*	modes: "window,drun,run,ssh";*/
 	font: "Roboto Bold 11";
