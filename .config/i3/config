@@ -196,6 +196,8 @@ exec --no-startup-id feh --bg-scale /mnt/pd/01Archive/2023/09/Images/wp02.jpg
 #Custom bindsym
 bindsym Print exec ~/myscreenshot.sh
 bindsym $mod+o exec $HOME/Downloads/Obsidian-1.4.13.AppImage
+bindsym $mod+i exec $HOME/Downloads/drawio-x86_64-21.8.2.AppImage
+
 
 title_align center
 
