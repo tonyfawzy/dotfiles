@@ -5,6 +5,7 @@
 #    \__\___/|_| |_|\__, |
 #                   |___/ 
 
+set fish_greeting
 set TERM "xterm-256color"
 
 #Aliases
