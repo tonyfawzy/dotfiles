@@ -1,0 +1,39 @@
+set cursorpreviewfmt "\033[7m"
+set period 2
+set info size
+set drawbox true
+
+cmd mkdir %{{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "Do you want to Delete? [y/N] "
+	read ans
+	[ $ans = "y" ] && echo "$fx" | xargs -d '\n' rm -rf && notify-send -u critical -i /mnt/pd/00Archive/2024/05/trash.png -a "lf" "Delete file(s) $fx"
+}}
+
+cmd dragon %{{
+	 echo "$fx" | xargs -d '\n' dragon-drop -a -x
+}}
+
+map p : paste; clear
+map ~ cd ~
+map n
+map . set hidden!
+map x dragon
+map D delete
+map nd mkdir
+map nf mkfile
