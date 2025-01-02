@@ -34,6 +34,7 @@ cmd dragon %{{
 
 map ~ cd ~
 map . set hidden!
+map p : paste; clear
 map D delete
 map nd makedir
 map nf makefile
