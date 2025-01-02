@@ -1,20 +1,9 @@
 set cursorpreviewfmt "\033[7m"
-set period 2
-set info size
 set drawbox true
+set info size
+set period 2
 
-cmd mkdir %{{
-  printf "Directory Name: "
-  read ans
-  mkdir $ans
-}}
-
-cmd mkfile ${{
-  printf "File Name: "
-  read ans
-  $EDITOR $ans
-}}
-
+map n
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -25,15 +14,27 @@ cmd delete ${{
 	[ $ans = "y" ] && echo "$fx" | xargs -d '\n' rm -rf && notify-send -u critical -i /mnt/pd/00Archive/2024/05/trash.png -a "lf" "Delete file(s) $fx"
 }}
 
+
+cmd makedir %{{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd makefile %{{
+  printf "File Name: "
+  read ans
+  touch $ans
+}}
+
 cmd dragon %{{
 	 echo "$fx" | xargs -d '\n' dragon-drop -a -x
 }}
 
-map p : paste; clear
+
 map ~ cd ~
-map n
 map . set hidden!
-map x dragon
 map D delete
-map nd mkdir
-map nf mkfile
+map nd makedir
+map nf makefile
+map x dragon
