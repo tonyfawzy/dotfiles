@@ -1,0 +1,89 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 20, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "river/tags"
+        
+    ],
+    "modules-center": [
+        "custom/wlr",
+        "sway/language"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "clock",
+        "tray",
+    ],
+    // Modules configuration
+
+    "river/tags": {
+        "num-tags": 9
+    },
+
+    "custom/wlr": {
+        "format": "{}",
+        "signal": 5,
+        "exec": "~/.config/waybar/scripts/wlr.sh"
+    },
+    
+    "sway/language": {
+        "format": "{}"
+    },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+   
+   
+    
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+    "clock": {
+        "interval": 60,
+        "format": "{:%d/%b/%Y  %I:%M %p}",
+        "format-alt": "{:%A}",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": "CPU:{usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "MEM:{}%"
+    },
+
+    "pulseaudio": {
+        "tooltip": false,
+        "scroll-step": 5, // %, can be a float
+        "format": "VOL:{volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "MUTED",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    }
+}

@@ -1,0 +1,148 @@
+@define-color bg #11111b;
+@define-color bga rgba(0, 0, 0,0.4);
+@define-color txt #F5F5F5;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
+    min-height: 0;
+    /*
+    margin: 0.01em 0.1em 0.01em 0.1em;
+    */
+}
+
+
+
+window#waybar {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 0;
+    color: @txt;
+    transition-property: background-color;
+}
+
+
+
+
+#tags button {
+    background-color: rgba(166, 227, 161, 0.0); 
+    color: @txt;
+    padding: 0px 4px;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    margin: 0.3em 0.1em 0.3em 0.1em;
+
+}
+
+#tags button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+#tags button.occupied {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+#tags button.focused{
+    background-color: rgba(255, 255, 255, 0.5);
+    /*color: @bg;*/
+}
+
+#custom-wlr,
+#clock,
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#wireplumber,
+#tray,
+#mode,
+#power-profiles-daemon {
+    padding: 0 3px;
+    color: #ffffff;
+    margin: 0.3em 0.1em 0.3em 0.1em;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+
+
+
+label:focus {
+    background-color: #000000;
+}
+
+
+#custom-wlr {
+    background-color: #f53c3c;
+}
+
+/*
+#tray,
+#pulseaudio,
+#cpu,
+#memory,
+#clock {
+    background-color: rgba(245, 245, 245,0.0);
+    color: @txt;
+}
+*/
+
+#clock {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#pulseaudio.muted {
+    background-color: rgba(235, 77, 75,1.0);
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+
+
