@@ -1,0 +1,26 @@
+# max no of notification in buffer
+max-history=6
+
+on-button-left=invoke-default-action
+on-button-right=dismiss-all
+on-notify=exec paplay /mnt/p1/01-DC/06-NotificationSounds/ding-sound-246413.mp3
+
+sort=-time
+border-radius=9
+default-timeout=10000
+
+# Colors
+background-color=#eff1f5
+text-color=#4c4f69
+border-color=#40a02b
+progress-color=over #ccd0da
+
+[urgency=high]
+border-color=#fe640b
+default-timeout=15000
+
+# Icons
+icons=1
+
+[app-name="grim"]
+on-button-left=invoke-default-action
