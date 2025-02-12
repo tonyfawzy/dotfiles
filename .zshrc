@@ -1,3 +1,4 @@
+# Alias
 alias ll='ls -Flh --color=always'
 alias grep='grep --color=always'
 alias vi='nvim'
@@ -17,9 +18,10 @@ PROMPT='%~ %# '
 
 autoload -U compinit && compinit
 
+# 
 bindkey -e # to disable vi style
-bindkey  "^[[H"   beginning-of-line
-bindkey '\e[4~' end-of-line
+bindkey  "^[[H" beginning-of-line
+bindkey  "^[[F" end-of-line
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
