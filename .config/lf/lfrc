@@ -4,6 +4,7 @@ set info size
 set period 2
 
 map n
+map q
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -11,7 +12,7 @@ cmd delete ${{
 	printf "%s\n\t" "$fx"
 	printf "Do you want to Delete? [y/N] "
 	read ans
-	[ $ans = "y" ] && echo "$fx" | xargs -d '\n' rm -rf && notify-send -u critical -i /mnt/pd/00Archive/2024/05/trash.png -a "lf" "Delete file(s) $fx"
+	[ $ans = "y" ] && echo "$fx" | xargs -d '\n' rm -rf && notify-send -u critical -a "lf" "Delete file(s) $fx"
 }}
 
 
