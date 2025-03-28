@@ -6,7 +6,8 @@ on-button-right=dismiss-all
 on-notify=exec paplay /mnt/p1/01-DC/06-NotificationSounds/ding-sound-246413.mp3
 
 sort=-time
-border-radius=9
+#border-radius=9
+border-radius=5
 default-timeout=10000
 
 # Colors
@@ -21,6 +22,3 @@ default-timeout=15000
 
 # Icons
 icons=1
-
-[app-name="grim"]
-on-button-left=invoke-default-action
