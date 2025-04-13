@@ -28,8 +28,8 @@ riverctl map normal Super Equal spawn "$HOME/script/volume.sh up"
 riverctl map normal Super Minus spawn "$HOME/script/volume.sh down"
 riverctl map normal Super BackSpace spawn "$HOME/script/volume.sh toggle"
 
-riverctl map normal None Print spawn "$HOME/script/neoscreenshot.sh"
-riverctl map normal Super Print spawn "$HOME/script/neoscreencast.sh"
+riverctl map normal None Print spawn "$HOME/script/screenshot.sh"
+riverctl map normal Super Print spawn "$HOME/script/screencast.sh"
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
