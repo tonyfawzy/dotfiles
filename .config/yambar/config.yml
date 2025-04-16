@@ -1,24 +1,58 @@
-bg_default: &bg_default {stack: [{background: {color: 89b4fa55}}, {underline: {size: 3, color: 89dcebff}}]}
+bg_default: &bg_default { stack: [
+  { background: { color: cba6f750}},
+  { underline: { size: 2, color: cba6f765}}
+]}
 
-bg_time: &bg_time {stack: [{background: {color: 89b4fa33}}]}
+bg_vol: &bg_vol { stack: [
+  { background: { color: cba6f750}},
+  { underline: { size: 2, color: cba6f765}}
+]}
+
+bg_cpu: &bg_cpu { stack: [
+  { background: { color: cba6f760}},
+  { underline: { size: 2, color: cba6f775}}
+]}
+
+bg_mem: &bg_mem { stack: [
+  { background: { color: cba6f770}},
+  { underline: { size: 2, color: cba6f785}}
+]}
+
+bg_clock: &bg_clock { stack: [
+  { background: { color: cba6f780}},
+  { underline: { size: 2, color: cba6f795}}
+]}
+
+bg_mute: &bg_mute { stack: [
+  { background: { color: d20f39ff }},
+]}
+
+# fonts
+awesome: &awesome Font Awesome 6 Free:style=solid:pixelsize=12
 
 bar:
-  location: bottom
+  location: top
   height: 20
-  background: 89b4fa11
-  font: JetBrains Mono:pixelsize=13
-  right-margin: 5
+  background: 1e1e2e00
+  font: GeistMono:pixelsize=13
+  right-margin: 4
+  spacing: 4
 
   right:
     - pipewire:
         anchors:
           volume: &volume
             conditions:
-              muted: {string: {text: "{linear_volume}% ", foreground: f38ba8ff}}
+              muted: {string: {text: "{linear_volume}% ",deco: *bg_mute}}
               ~muted: {string: {text: "{linear_volume}% "}}
         content:
 
           list:
+            deco: *bg_vol
+            on-click:
+              wheel-up: "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+              wheel-down: "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+              left: "pactl set-sink-mute @DEFAULT_SINK@ toggle"
             items:
               - map:
                   conditions:
@@ -31,23 +65,72 @@ bar:
                           - ramp:
                               tag: linear_volume
                               items:
-                                - string: {text: "🔈"}
-                                - string: {text: "🔉"}
-                                - string: {text: "🔊"}
+                                - string: {text: " \uf026", font: *awesome}
+                                - string: {text: " \uf027", font: *awesome}
+                                - string: {text: " \uf028", font: *awesome}
                     type == "source":
-                      - string: {text: "🎙"}
+                      - string: {text: " \uf130", font: *awesome}
               - map:
                   <<: *volume
-    - clock:
-        date-format: "[%a] [%d/%b/%Y]"
-        time-format: "%l:%M %p"
+
+    - cpu:
+       anchors:
+         ico_cpu: &ico_cpu { text: " \uf2db", font: *awesome }
+       poll-interval: 3000
+       content:
+         map:
+           conditions:
+             id < 0:
+              list:
+                deco: *bg_cpu
+                items:
+                  - string: *ico_cpu
+
+                  - string:
+                      text: "{cpu}% " 
+
+    - mem:
+        anchors:
+          ico_mem: &ico_mem { text: " \uf538", font: *awesome }
+        poll-interval: 3500
         content:
-          - string: {text: "{date}"}
-          - string: {text: "{time}", deco: *bg_time}
+          list:
+            deco: *bg_mem
+            items:
+              - string: *ico_mem
+              - string: {text: " {percent_used}% "}
+      
+    - clock:
+        anchors:
+          ico_time: &ico_time { text: " \uf017", font: *awesome }
+          ico_date: &ico_date { text: " \uf073", font: *awesome }
+        date-format: "%a %d/%b/%Y"
+        time-format: "%l:%M %p"
+
+        content:
+          list:
+            deco: *bg_clock
+            items:
+              - string: *ico_date
+              - string: { text: "{date}" }
+              - string: *ico_time
+              - string: {text: "{time} "}     
+
+    - removables:
+        content:
+          map:
+            conditions:
+              ~mounted:
+                string:
+                  on-click: udisksctl mount -b {device}
+                  text: "{label}"
+              mounted:
+                string:
+                  on-click: udisksctl unmount -b {device}
+                  text: "{label}"
+                  deco: {underline: {size: 2, color: ffffffff}}
+
             
-
-
-
 
   left:
     - river:
@@ -100,12 +183,13 @@ bar:
 
 
   center:
+
     - foreign-toplevel:
         content:
           map:
             conditions:
               ~activated: {empty: {}}
               activated:
-                - string: {text: "{app-id}", foreground: 89dcebff}
+                - string: {text: "{app-id}", foreground: a765f7ff}
                 #- string: {text: ": {title}"}
 
