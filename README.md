@@ -2,4 +2,4 @@
 My current dotfiles
 
 ## Screenshot
-![](./.assets/screenshots/2025-01-29-191738171049.png)
+![](./.assets/screenshots/2025-04-16-231744838254.png)
